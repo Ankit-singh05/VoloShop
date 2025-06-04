@@ -1,0 +1,58 @@
+﻿@using VoloShop.Models;
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - VoloShop</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Dasboard.css" asp-append-version="true" />
+    
+    <link rel="stylesheet" href="~/VoloShop.styles.css" asp-append-version="true" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+                  
+         @* <div class="d-flex align-items-center">
+             <img src="" value="@a.Pic"alt="Logo">
+                 <h1 value="@a.ShopName">@a.ShopName</h1>
+         </div> *@
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <form action="/search" method="get">
+                <input type="text" name="query" placeholder="Search your products..." aria-label="Search">
+            </form>
+        </div>
+        <div>
+            <a href="/home/Profile" class="text-white text-decoration-none">Profile</a> |
+            <a href="/home/LogOut" class="text-white text-decoration-none">Logout</a>
+        </div>
+    </div>
+
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+        <a href="/home/dashboard">Dashboard</a>
+        <a href="/home/order">Orders</a>
+         @* <a href="/home/sales">Sales Analytics</a> *@
+        <a href="/category/Shopcategory">Shop Category</a>
+        <a href="/Subcategory/ShopSubCategory">Sub Category</a>
+        <a href="/Product/ShopProducts">Add Product</a>
+    </div>
+
+    <div class="main-content">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+   
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

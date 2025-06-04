@@ -1,0 +1,7 @@
+﻿<select class="form-select" onchange="loadpro(this.value)" id="mscat" name="SubCategoryId">
+    <option value="select">Select Subcat</option>
+        @foreach (var a in ViewBag.SubCategory)
+        {
+                <option value="@a.SubCategoryId">@a.SubCategoryName</option>
+        }
+</select>

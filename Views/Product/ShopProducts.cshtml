@@ -1,0 +1,143 @@
+﻿@using VoloShop.Models;
+@model ShopProduct;
+@{
+    Layout = "_Layout";
+}
+<script>
+    $(document).ready(() => {
+        
+        $("#selcat").change(() => {
+            var cid = $("#selcat").val();
+            $.ajax({
+                url: '@Url.Action("GetSubCat1", "Product")',
+                type: 'GET',
+                data: { cid: cid },
+                success: (res) => {
+                    
+                    $("#divscat").html(res);
+                }
+            });
+        });
+
+        $("#setcat").change(() => {
+        
+            var cid = $("#setcat").val();
+            $.ajax({
+                url: '@Url.Action("GetSubCat", "Product")',
+                type: 'GET',
+                data: { cid: cid },
+                success: (res) => {
+                   
+                    $("#divscat1").html(res);
+                }
+            });
+        });
+
+
+       
+
+    });
+    const loadpro = (x) => {
+        $.ajax({
+            url: '@Url.Action("GetProCat", "Product")',
+            type: 'GET',
+            data: { sid: x },
+            success: (res) => {
+
+                $("#prodcat").html(res);
+            }
+        });
+    }
+</script>
+<div class="main-content">
+    <h2 class="mb-4"> Add Product </h2>
+    <div class="row">
+        <div class="col-md-4">
+            <select class="form-select" id="selcat" name="CategoryId">
+                <option value="select">Select Categories</option>
+                @foreach (var a in ViewBag.ShopCategory)
+                {
+                    <option value="@a.CategoryId">@a.CategoryName</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4">
+            <div id="divscat">
+            <select class="form-select" name="SubCategoryId">
+                <option>Select Subcategory</option>
+            </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!-- Button to Open Modal for Adding Product -->
+            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                Add New Product
+            </button>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="ShopProducts" asp-controller="Product" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="categoryName" class="form-label">Category Name</label>
+                            <select class="form-select" id="setcat" name="CategoryId">
+                                @foreach (var a in ViewBag.ShopCategory)
+                                {
+                                    <option value="@a.CategoryId">@a.CategoryName</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryName" class="form-label"> Sub Category Name</label>
+                            <div id="divscat1">
+                                <select class="form-select" id="scat" name="SubCategoryId">
+                                    <option>Select Subcategory</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Product Name</label>
+                            <input type="text" class="form-control" asp-for="ProductName" placeholder="Enter product name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" asp-for="Description" rows="3" placeholder="Enter product description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price</label>
+                            <input type="number" class="form-control" asp-for="Price" step="0.01" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Stock Quantity</label>
+                            <input type="number" class="form-control" asp-for="StockQuantity" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Brand</label>
+                            <input type="text" class="form-control" asp-for="Brand">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Upload Picture</label>
+                            <input type="file" class="form-control" asp-for="Pic">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Table -->
+    <div class="product-table">
+        <h3>Product List</h3>
+        <div id="prodcat">ss</div>
+    </div>
+</div>

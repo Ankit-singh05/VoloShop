@@ -1,0 +1,88 @@
+﻿@using VoloShop.Models;
+@model ProductOrder;
+@{
+    Layout = "_Layout";
+}
+
+<!-- Main Content -->
+<div class="main-content">
+
+     <h2>Your Products</h2>
+
+    <table class="table table-bordered table-hover shadow">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>Customer Id</th>
+                <th>Order Date</th>
+                <th>Shipping Address</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+
+            <table class="table table-bordered table-hover shadow">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>Customer Id</th>
+                        <th>Order Date</th>
+                        <th>Shipping Address</th>
+                        <th>Status</th>
+                        <th>Total Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+
+                <tbody class="text-center" style="color:white;">
+                    <tr>
+                        <td>234567890</td> <!-- CustomerId -->
+                        <td>2025-05-30T19:52:13.8402158</td> <!-- OrderDate -->
+                        <td>VN</td> <!-- ShippingAddress -->
+                        <td>Pending</td> <!-- Status -->
+                        <td>3000.00</td> <!-- TotalAmount -->
+                        <td>
+                            <a class="btn btn-sm btn-danger">
+                                🗑️ Remove
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>23456789</td>
+                        <td>2025-05-30T19:53:41.7654370</td>
+                        <td>VN</td>
+                        <td>Pending</td>
+                        <td>3000.00</td>
+                        <td>
+                            <a class="btn btn-sm btn-danger">
+                                🗑️ Remove
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+
+                </tbody>
+            </table>
+
+          
+        </tbody>
+    </table>
+    <div class="mt-4">
+        <a href="/product/shopproducts" class="btn btn-success">Add New Product</a>
+    </div>
+    <section id="contact" class="mt-5">
+        <h2>Contact Support</h2>
+        <div class="card p-4 mt-3">
+            <p>If you need assistance, please contact our support team at <a href="mailto:support@voloapp.com">support@voloapp.com</a>.</p>
+        </div>
+    </section>
+
+    <section id="about" class="mt-5">
+        <h2>About Us</h2>
+        <div class="card p-4 mt-3">
+            <p>VOLO is dedicated to empowering local shopkeepers by providing a platform to sell their products within a 2-kilometer radius. Join us in supporting your local community!</p>
+        </div>
+    </section>
+</div>
+
+

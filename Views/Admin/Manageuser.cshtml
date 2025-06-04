@@ -1,0 +1,61 @@
+﻿@model List<Shopkeeper>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Shopkeeper Requests</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/admincss/manage.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Manage Shopkeeper Requests</h1>
+        <a href="/admin/admindas" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+
+    <!-- Request Management Section -->
+    <div class="container mt-5">
+        <h2>Pending Shopkeeper Requests</h2>
+        <table class="table table-dark table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Shopkeeper Name</th>
+                    <th>Email</th>
+                    <th>Shop Name</th>
+                    <th>GSTNumber</th>
+                    <th>bankAccount</th>
+                    <th>AdharNumber</th>
+                    <th>phoneNumber</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                 @foreach (var a in Model)
+                 {
+                     <tr>
+                        <td>@a.ShopId</td>
+                        <td>@a.ShopKeeperName</td>
+                         <td>@a.Email </td>
+                         <td>@a.ShopName</td>
+                        <td>@a.GSTNumber</td>
+                         <td>@a.BankAccount</td>
+                        <td>@a.AdharNumber</td>
+                         <td>@a.PhoneNumber</td>
+                         <td>
+                             <a href="//@a.ShopId"><i class="fas fa-plus">&nbsp;</i></a>&nbsp;&nbsp;<a href="/Admin/Deletdetail/@a.ShopId"><i class="fa fa-trash"></i></a>
+                         </td>
+                     </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

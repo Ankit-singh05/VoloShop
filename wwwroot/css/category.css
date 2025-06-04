@@ -1,0 +1,28 @@
+﻿.main-content {
+     margin-left: 100px;
+    margin-top: 70px;
+    padding: 20px;
+}
+
+.order-table {
+    background-color: #1e1e1e;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    background-color: #2e2e2e;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #444;
+}
+
+th {
+    background-color: #3a3a3a;
+}

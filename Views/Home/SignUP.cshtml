@@ -1,0 +1,127 @@
+﻿@using VoloShop.Models;
+@model Shopkeeper;
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Signup</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/signup.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="signup-card">
+        <h2>Seller Signup</h2>
+        <form method="post" asp-action="Signup" asp-controller="Home" enctype="multipart/form-data">
+            <h4>Basic Information</h4><hr />
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Shopkeeper Name</label>
+                    <input type="text" class="form-control" asp-for="ShopKeeperName" placeholder="Enter your name">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Shop Name</label>
+                    <input type="text" class="form-control" asp-for="ShopName" placeholder="Enter shop name">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" asp-for="Email" placeholder="Enter email address">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" asp-for="PhoneNumber" placeholder="Enter phone number">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Business Address</label>
+                <textarea class="form-control" asp-for="BusinessAddress" rows="3" placeholder="Enter business address"></textarea>
+            </div>
+            <br />
+            <h4>Business Information</h4><hr />
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Business Type</label>
+                    <select class="form-control" asp-for="BusinessType">
+                        <option value=" kirana">-- Select Business Type --</option>
+                        <option value="private">private</option>
+                        <option value="select">-- Select  --</option>
+                    </select>
+
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">GST Number</label>
+                    <input type="text" class="form-control" asp-for="GSTNumber" placeholder="Enter Tax ID or VAT Number">
+                </div>
+            </div>
+            <br />
+            <h4>Payment Information</h4><hr />
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Bank Account Number</label>
+                    <input type="text" class="form-control" asp-for="BankAccount" placeholder="Enter bank account number">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Adhar Number</label>
+                    <input type="number" class="form-control" asp-for="AdharNumber" placeholder="Enter bank routing number">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="paymentMethod" class="form-label">Preferred Payment Method</label>
+                <select class="form-control" asp-for="PaymentMethod" asp-items="ViewBag.PaymentMethods">
+                    <option value="select">-- Select Payment Methods Type --</option>
+                    <option value="Paypal">Paypal</option>
+                    <option value="Others">Others</option>
+                </select>
+
+            </div>
+            <br />
+            <h4>Product Information</h4><hr />
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="productType" class="form-label">Type of Products</label>
+                    <input type="text" class="form-control" asp-for="ProductType" placeholder="Enter type of products">
+                </div>
+                <div class="col-md-6">
+                    <label for="productDescription" class="form-label">Product Description</label>
+                    <textarea class="form-control" asp-for="ProductDescription" rows="3" placeholder="Enter product description"></textarea>
+                </div>
+            </div>
+            
+            <h4>Make Password</h4><hr />
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" asp-for="Password" placeholder="Enter Passsword">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Enter Confirm Password">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Shop Image</label>
+                <input type="file" class="form-control" asp-for="Pic">
+            </div>
+           
+
+            <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="termsAgreement">
+                <label class="form-check-label" for="termsAgreement">
+                    I agree to the terms and conditions
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+            <div class="link-section">
+                <a href="/home/login">Already have an account? Log in</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
